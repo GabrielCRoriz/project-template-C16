@@ -37,6 +37,9 @@ function setup() {
   
    score = 0  
   redB= new Group();
+  greenB= new Group();
+  blueB= new Group();
+  pinkB= new Group();
   //Crie um grupo para greenBalloon (balão verde)
  //Crie um grupo para blueBalloon (balão azul)
  //Crie um grupo para pinkBalloon (balão rosa)
@@ -87,10 +90,26 @@ function draw() {
     redB.destroyEach();
 
     gameState=END; 
-
-
 }
  
+    if (arrowGroup.isTouching(greenB)) {
+    greenB.destroyEach();
+
+    gameState=END; 
+}
+   
+    if (arrowGroup.isTouching(blueB)) {
+    blueB.destroyEach();
+
+    gameState=END; 
+}
+   
+    if (arrowGroup.isTouching(pinkB)) {
+    pinkB.destroyEach();
+
+    gameState=END; 
+}
+   
   if (gameState === END) {
   bow.destroy();
   scene.velocityX = 0;
@@ -137,7 +156,7 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
- //Adicione o grupo
+  blueB.add(blue);
 }
 
 function greenBalloon() {
@@ -146,7 +165,7 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
-  //Adicione o grupo
+  greenB.add(blue);
 }
 
 function pinkBalloon() {
@@ -155,7 +174,7 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
- //Adicione o grupo
+  pinkB.add(blue);
 }
 
 
